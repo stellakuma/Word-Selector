@@ -11,26 +11,54 @@ using namespace std;
 int main() {
 	
 	srand(time(nullptr));
+	_mkdir("c:\\WORD TEST");
 
 	/* LIST READ PART */
-	string temp = "";
-	ifstream wlist;
-	wlist.open("c:\\WORD_TEST\\words.txt");
-	if (wlist.is_open()) {
+	string temp;
 	
-		while (!wlist.eof()) {
-			
-			getline(wlist, temp);
+	ifstream readFile;
+	readFile.open("c:\\WORD TEST\\words.txt");
+	if (readFile.is_open()){
+
+		while (!readFile.eof()){
+
+			getline(readFile, temp);
 
 		}
-		wlist.close();
 
+		readFile.close();
+	
+	}else {
+	
+		cout << "Any words.txt file detected.\nPlease check your c:\\WORD TEST folder." << flush;
+		exit(1);
+	
 	}
 
 	/* LIST BUILD PART */
 	//TODO :: Create vector of word using "temp" string
+	vector<string> i;
+	string word = "";
+	string tempw = "";
 
-	vector<string> i = { "Tenant","Postpone","Renovate","Archeological","Generate","Relic","Accommodate","Enterprise","Structure","Print","Correction","Issue","Mandatory","Obtainment","Fledging","Highly","Soar","Sanitation","Post","Salaried","Wage","Acquirement","Compensation","Rely on","Objective" };
+	for (int j = 0; j < temp.length(); j++) {
+	
+		if (int(temp[j]) != 32) {
+		
+			tempw = temp[j];
+			word += tempw;
+		
+		}else {
+		
+			i.push_back(word);
+			word = "";
+
+		}
+
+	}
+
+	cout << i.size() << " words detected.\n";
+
 	vector<string>::iterator iter = i.begin();
 
 	int p = 0;
@@ -48,17 +76,16 @@ int main() {
 	}
 
 	/* LIST PRINT PART */
-	_mkdir("c:\\WORD TEST");
 	ofstream print;
-	print.open("c:\\WORD TEST\\WORD TEST.txt");
+	print.open("c:\\WORD TEST\\WORD TEST.md");
 	p = r.size();
-	while (p --> 0) {
+	short nlc = 0;
 
-		const char* i = (r[p]+=string(" | \n")).c_str();
-		print.write( i, r[p].length() );
+	while (p --> 0) {
+		
+			const char* j = (r[p] += string("|\n")).c_str();
+			print.write(j, r[p].length());
 
 	}print.close();
-
-
 
 }
