@@ -13,7 +13,7 @@ Random word selector for does who memorizing "english" word
  >>                		  	and notice user to readed word list's word quantity. also, from this version, testpaper will wrote in .md file.
  >>                			  recommend offline .md reader is Typora. TODO : make table layout in testpaper with markdown layout.  
  >> Sixth commit - Hotfix of fifth commit. delete 1 bug - delete crash when typing bigger than half of word number or smaller than half of word number.  
- >>							(As i think, using vector.begin() function instead of vector.begin() in vector iterator class variable solving this problem. )
+ >>							(As i think, using vector.begin() function instead of vector.begin() in vector iterator class variable solving this problem. )  
 
 ## Special Thanks
  > Ranol☆P`21
