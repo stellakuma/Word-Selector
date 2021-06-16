@@ -59,8 +59,6 @@ int main() {
 
 	cout << i.size() << " words detected.\n";
 
-	vector<string>::iterator iter = i.begin();
-
 	int p = 0;
 	cout << "Write down the amount of word as you want." << "\n" << flush;
 	cin >> p;
@@ -69,9 +67,13 @@ int main() {
 
 	while (p --> 0) {
 		
-		int a = rand() % (i.size() - 1);
+		if (i.size() == 1) {
+			r[p] = i[0];
+			continue;
+		}
+		int a = rand() % (i.size()-1);
 		r[p] = i[a];
-		i.erase(iter+a);
+		i.erase(i.begin()+a);
 
 	}
 
