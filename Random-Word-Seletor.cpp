@@ -56,12 +56,26 @@ int main() {
 		}
 
 	}
+	if (i.size() != 0) {
 
-	cout << i.size() << " words detected.\n";
+		cout << i.size() << " words detected.\n";
 
+	}else {
+	
+		cout << "Any words detected in word.txt file.\nPlease check your c:\\WORD TEST folder." << flush;
+		exit(1);
+	
+	}
 	int p = 0;
-	cout << "Write down the amount of word as you want." << "\n" << flush;
+	cout << "Please type the amount of word as you want.\n" << flush;
 	cin >> p;
+	
+	int w,width = 0;
+	cout << "Please type the test paper's width\n";
+	cout << "Width : " << flush;
+	cin >> w;
+	
+
 	//result vector
 	vector<string> r(p);
 
@@ -81,13 +95,22 @@ int main() {
 	ofstream print;
 	print.open("c:\\WORD TEST\\WORD TEST.md");
 	p = r.size();
-	short nlc = 0;
+	short nnc = 0;
+
+	const char* stick = string("|").c_str();
+	const char* nls = string("|\n").c_str();
+	const char* bar = string("-").c_str();
+	const char* nl = string("\n").c_str();
+	const char* tt = string(" ").c_str();
 
 	while (p --> 0) {
 		
-			const char* j = (r[p] += string("|\n")).c_str();
-			print.write(j, r[p].length());
+			string j = ("|" + r[p] + "| |\n");
+			print.write(j.c_str(), j.length());
+			
 
-	}print.close();
+	}
+	print.write(nl, string("\n").length());
+	print.close();
 
 }
