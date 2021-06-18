@@ -15,7 +15,7 @@ Random word selector for does who memorizing "english" word
  >> **Sixth commit** - Hotfix of fifth commit. delete 1 bug - delete crash when typing bigger than half of word number or smaller than half of word number.  
  >>							(As i think, using vector.begin() function instead of vector.begin() in vector iterator class variable solving this problem. )  
  >>								**Please do not use force git push. i'm lost all of my commit in my repo.**  
- >> **Seventh commit** - Suck update. totally mass. dirty codes and table layout doesn't come out before user type enter in markdown doc.  
+ >> **Seventh commit** - Suck update. totally mess. dirty codes and table layout doesn't come out before user type enter in markdown doc.  
  >>							WIP : find some way for fix table layout issue n table width function.
 
 ## Special Thanks
