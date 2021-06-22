@@ -62,19 +62,22 @@ int main() {
 
 	}else {
 	
-		cout << "Any words detected in word.txt file.\nPlease check your c:\\WORD TEST folder." << flush;
+		cout << "Any words detected in word.txt file.\nPlease check your C:\\WORD TEST folder." << flush;
 		exit(1);
 	
 	}
 	int p = 0;
-	cout << "Please type the amount of word as you want.\n" << flush;
+	cout << "Please type the amount of word as you want.\n";
+	cout << "Amount : " << flush;
 	cin >> p;
 	
-	int w,width = 0;
-	cout << "Please type the test paper's width\n";
-	cout << "Width : " << flush;
-	cin >> w;
-	
+	int w = 0;
+	cout << "Please type the test paper's width(MUST BE EVEN NUMBER)\n" << flush;
+	while (true) {
+		cout << "Width : " << flush;
+		cin >> w;
+		if (w % 2 == 0) break;
+	}
 
 	//result vector
 	vector<string> r(p);
@@ -95,22 +98,49 @@ int main() {
 	ofstream print;
 	print.open("c:\\WORD TEST\\WORD TEST.md");
 	p = r.size();
-	short nnc = 0;
+	//temporary write
+	string tw = "";
+	short wcounter = 0;
 
-	const char* stick = string("|").c_str();
-	const char* nls = string("|\n").c_str();
-	const char* bar = string("-").c_str();
-	const char* nl = string("\n").c_str();
-	const char* tt = string(" ").c_str();
-
+	string top = "|word|meaning";
+	string table = "|-|-";
+	string empty = "| | ";
+	while (wcounter != w) { tw += top; wcounter++; }
+	tw += "|\n";
+	wcounter = 0;
+	while (wcounter != w) { tw += table; wcounter++; }
+	tw += "|\n";
+	print.write(tw.c_str(), tw.length());
+	tw = ""; wcounter = 0;
+	
 	while (p --> 0) {
-		
-			string j = ("|" + r[p] + "| |\n");
-			print.write(j.c_str(), j.length());
+
+			tw += "|" + r[p] + "| ";
+			wcounter++;
+
+			if (wcounter == w) { tw += "|\n"; print.write(tw.c_str(), tw.length()); wcounter = 0; tw = ""; }
+			if (p == 0) { 
+				
+				short a = w - wcounter;
+				while ( a != 0 ) {
+				
+					tw += empty;
+					a--;
+				
+				}
+				tw += "|\n";
+				
+				print.write(tw.c_str(), tw.length());
 			
+			}
 
 	}
-	print.write(nl, string("\n").length());
+	print.write("\n", string("\n").length());
 	print.close();
 
+
+
+	cout << "Printing done! Check your c:\\WORD TEST folder.\nPlease type enter to exit program..." << flush;
+	cin >> p;
+	exit(1);
 }
