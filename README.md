@@ -21,9 +21,9 @@ Random word selector for does who memorizing "english" word
  >>							WIP : find some way for fix table layout issue n table width function.  
  
  > v0 - dev2
- >> **Eight commit** - Great. table print function is fully working, and you can adjust width your test paper.  
+ >> **Eighth commit** - Great. table print function is fully working, and you can adjust width your test paper.  
  >>							Printed paper will automatically adjust your width input(as you know, this is word test paper, so width must be even number.)  
- >>								WIP : Make command line into GUI.  
+ >>								WIP : Make commandline into GUI.  
  >>									First stable version. i recommend this version before gui update.  
 
 ## Special Thanks
