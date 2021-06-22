@@ -23,8 +23,8 @@ Random word selector for does who memorizing "english" word
  > v0 - dev2
  >> **Eight commit** - Great. table print function is fully working, and you can adjust width your test paper.  
  >>							Printed paper will automatically adjust your width input(as you know, this is word test paper, so width must be even number.)  
- >>								WIP : Make command line into GUI.
- >>									First stable version. i recommend this version before gui update.
+ >>								WIP : Make command line into GUI.  
+ >>									First stable version. i recommend this version before gui update.  
 
 ## Special Thanks
  > Ranol☆P`21
