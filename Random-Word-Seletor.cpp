@@ -5,6 +5,7 @@
 #include <ctime>
 #include <vector>
 #include <direct.h>
+#include <windows.h>
 
 using namespace std;
 
@@ -17,7 +18,7 @@ int main() {
 	string temp;
 	
 	ifstream readFile;
-	readFile.open("c:\\WORD TEST\\words.txt");
+	readFile.open("c:\\WORD TEST\\word list.txt");
 	if (readFile.is_open()){
 
 		while (!readFile.eof()){
@@ -62,7 +63,7 @@ int main() {
 
 	}else {
 	
-		cout << "Any words detected in word.txt file.\nPlease check your C:\\WORD TEST folder." << flush;
+		cout << "Any words detected in word list.txt file.\nPlease check your C:\\WORD TEST folder." << flush;
 		exit(1);
 	
 	}
@@ -98,20 +99,20 @@ int main() {
 	ofstream print;
 	print.open("c:\\WORD TEST\\WORD TEST.md");
 	p = r.size();
+
+	/* TABLE BUILD PART */
 	//temporary write
 	string tw = "";
+	string tablearr[3] = {"|word|meaning", "|-|-", "| | "};
 	short wcounter = 0;
 
-	string top = "|word|meaning";
-	string table = "|-|-";
-	string empty = "| | ";
-	while (wcounter != w) { tw += top; wcounter++; }
-	tw += "|\n";
-	wcounter = 0;
-	while (wcounter != w) { tw += table; wcounter++; }
-	tw += "|\n";
+	for (int i = 0; i < 2; i++) {
+		while (wcounter != w) { tw += tablearr[i]; wcounter++; }
+		tw += "|\n"; wcounter = 0;
+	}
+
 	print.write(tw.c_str(), tw.length());
-	tw = ""; wcounter = 0;
+	tw = "";
 	
 	while (p --> 0) {
 
@@ -124,7 +125,7 @@ int main() {
 				short a = w - wcounter;
 				while ( a != 0 ) {
 				
-					tw += empty;
+					tw += tablearr[2];
 					a--;
 				
 				}
@@ -140,7 +141,8 @@ int main() {
 
 
 
-	cout << "Printing done! Check your c:\\WORD TEST folder.\nPlease type enter to exit program..." << flush;
-	cin >> p;
+	cout << "Printing done! Check your c:\\WORD TEST folder.\n\n\n\n\n";
+	cout << "This program will be automatically shutdown after 5 seconds...." << flush;
+	Sleep(5000);
 	exit(1);
 }
