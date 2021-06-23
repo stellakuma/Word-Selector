@@ -25,8 +25,9 @@ Random word selector for does who memorizing "english" word
  >>							Printed paper will automatically adjust your width input(as you know, this is word test paper, so width must be even number.)  
  >>								WIP : Make commandline into GUI.  
  >>									First stable version. i recommend this version before gui update.  
+ >>  
  >> **Nineth commit** - Hotfix of Eighth commit. change program shutdown way to automatically shutdown after 5sec instead program doesn't shutdown after type enter.  
- >>							and minor source optimization.
+ >>							and minor source optimization.  
 
 ## Special Thanks
  > Ranol☆P`21
