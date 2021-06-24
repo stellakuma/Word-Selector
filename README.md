@@ -28,6 +28,10 @@ Random word selector for does who memorizing "english" word
  >>  
  >> **Nineth commit** - Hotfix of Eighth commit. change program shutdown way to automatically shutdown after 5sec instead program doesn't shutdown after type enter.  
  >>							and minor source optimization. **NOW, I RECOMMEND THIS VERSION INSTEAD EIGHTH ONE.**  
+ >>  
+ >> **Tenth commit** - Weak improvement of command line layout. there will be one more command line layout update.  
+ >>							I think, it will be menu option.( like paper printing, help.. etc )  
+ >>								and NOW, after this version, it will indicate its version with revision number on the top of the cli.
 
 ## Special Thanks
  > Ranol☆P`21

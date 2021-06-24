@@ -9,8 +9,32 @@
 
 using namespace std;
 
+const char* VERSION_NUMBER = "DEVELOPMENT VERSION 2";
+const char* REVISION_NUMBER = "2";
+
+void line( const char* c ) {
+	
+	short sw = 119;
+
+	while (sw --> 0) {
+	
+		cout << c;
+	
+	}cout << "\n\n" << flush;
+
+}
+
+void printTitle() {
+
+	line("=");
+	cout << "RANDOM WORD SELECTOR - " << VERSION_NUMBER << " REVISION " << REVISION_NUMBER << "\n";
+	line("=");
+
+}
+
 int main() {
 	
+	printTitle();
 	srand(time(nullptr));
 	_mkdir("c:\\WORD TEST");
 
@@ -31,7 +55,7 @@ int main() {
 	
 	}else {
 	
-		cout << "Any words.txt file detected.\nPlease check your c:\\WORD TEST folder." << flush;
+		cout << "Any word list.txt file detected.\nPlease check your c:\\WORD TEST folder." << flush;
 		exit(1);
 	
 	}
@@ -58,8 +82,9 @@ int main() {
 
 	}
 	if (i.size() != 0) {
-
-		cout << i.size() << " words detected.\n";
+		
+		cout << i.size() << " words detected in your word list file. \n";
+		line("-");
 
 	}else {
 	
@@ -71,7 +96,8 @@ int main() {
 	cout << "Please type the amount of word as you want.\n";
 	cout << "Amount : " << flush;
 	cin >> p;
-	
+	line("-");
+
 	int w = 0;
 	cout << "Please type the test paper's width(MUST BE EVEN NUMBER)\n" << flush;
 	while (true) {
@@ -79,6 +105,7 @@ int main() {
 		cin >> w;
 		if (w % 2 == 0) break;
 	}
+	line("-");
 
 	//result vector
 	vector<string> r(p);
@@ -138,8 +165,6 @@ int main() {
 	}
 	print.write("\n", string("\n").length());
 	print.close();
-
-
 
 	cout << "Printing done! Check your c:\\WORD TEST folder.\n\n\n\n\n";
 	cout << "This program will be automatically shutdown after 5 seconds...." << flush;
