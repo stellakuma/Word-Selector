@@ -9,8 +9,9 @@
 
 using namespace std;
 
-const char* VERSION_NUMBER = "DEVELOPMENT VERSION 2";
-const char* REVISION_NUMBER = "2";
+const char* VERSION_NAME = "DEVELOPMENT VERSION 2";
+const char* REVISION_NUMBER = "3";
+const char* TLINE = "\nTyping line >> ";
 
 void line( const char* c ) {
 	
@@ -27,8 +28,40 @@ void line( const char* c ) {
 void printTitle() {
 
 	line("=");
-	cout << "RANDOM WORD SELECTOR - " << VERSION_NUMBER << " REVISION " << REVISION_NUMBER << "\n";
+	cout << "RANDOM WORD SELECTOR - " << VERSION_NAME << " REVISION " << REVISION_NUMBER << "\n";
 	line("=");
+
+}
+
+bool menu() {
+
+	bool inp = 0;
+	cout << "Select the menu (type proper number)\n0 : MAKE PAPER\n1 : HOW TO USE\n" << TLINE << flush;
+	cin >> inp;
+	if (inp > 1) {
+		
+		cout << "PLEASE TYPE THE PROPER NUMBER\n" << TLINE << flush;
+		cin >> inp;
+	
+	}
+
+	return inp;
+
+}
+
+void menuTask(bool inp) {
+
+	while (inp != 0){
+
+		if (inp == 1) {
+
+			line("#");
+			cout << "First, you need to write list of words at C:\\WORD LIST folder with which name word list.txt\n(Example of word list : hi hello apple charcoal banana land mountain born... like this, you can seperate word with type space bar.)\n\nSecond, just turn on this program and type 0 with enter.\nThan, you will see \"type amount of words\". you can adjust how much words randomly selected.\n\nThird. you can adjust paper's width. surely, this is a english word test paper, so 1 words need 2 blanks.(words itself, write meaning blank)\nSo, this is why you can type width only in even number.\nAfter that, result will save in C:\\WORD LIST folder in with name like WORD TEST.md.\n\nIf there's be any issue, please report bug at cyanpen13@gmail.com.\n";
+			line("#");
+
+		}inp = menu();
+	
+	}
 
 }
 
@@ -37,6 +70,8 @@ int main() {
 	printTitle();
 	srand(time(nullptr));
 	_mkdir("c:\\WORD TEST");
+
+	menuTask(menu());
 
 	/* LIST READ PART */
 	string temp;
@@ -55,7 +90,7 @@ int main() {
 	
 	}else {
 	
-		cout << "Any word list.txt file detected.\nPlease check your c:\\WORD TEST folder." << flush;
+		cout << "\nAny word list.txt file detected.\nPlease check your c:\\WORD TEST folder." << flush;
 		exit(1);
 	
 	}
@@ -83,25 +118,29 @@ int main() {
 	}
 	if (i.size() != 0) {
 		
-		cout << i.size() << " words detected in your word list file. \n";
+		cout << "\n" << i.size() << " words detected in your word list file. \n";
 		line("-");
 
 	}else {
 	
-		cout << "Any words detected in word list.txt file.\nPlease check your C:\\WORD TEST folder." << flush;
+		cout << "\nAny words detected in word list.txt file.\nPlease check your C:\\WORD TEST folder." << flush;
 		exit(1);
 	
 	}
 	int p = 0;
-	cout << "Please type the amount of word as you want.\n";
-	cout << "Amount : " << flush;
-	cin >> p;
+	cout << "Please type the amount of word as you want.\n" << flush;
+	while ( !((p <= i.size()) and (p > 0)) ) {
+
+		cout << TLINE << flush;
+		cin >> p;
+
+	}
 	line("-");
 
 	int w = 0;
 	cout << "Please type the test paper's width(MUST BE EVEN NUMBER)\n" << flush;
 	while (true) {
-		cout << "Width : " << flush;
+		cout << TLINE << flush;
 		cin >> w;
 		if (w % 2 == 0) break;
 	}
