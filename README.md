@@ -36,7 +36,7 @@ Random word selector for does who memorizing "english" word
  >> **Eleventh commit** - Adding menu. 0 for make paper, 1 for how to use. and also, looks better than previous one.  
  >>								as i think, this one is better than previous one. TODO : Support phrase & make GUI.  
  >>  
- >> **Twelfth commit** - Now, RWS supports phrase. so example is below. how to use add phrase in word list.txt file.  
+ >> **Twelfth commit** - Now, RWS supports phrase. so example is below. how to add phrase-type in word list.txt file.  
  >>								Example of word list.txt : **alphabet alpha bet ;kiwi juice ;;space ship cat ;;;random word selector twelfth** -> 6 words.  
  >>									you can just easily add semicolon how space occupy in words. TODO : make GUI.  
  >>										and also, i fixed some minor bug.
