@@ -10,7 +10,7 @@
 using namespace std;
 
 const char* VERSION_NAME = "DEVELOPMENT VERSION 2";
-const char* REVISION_NUMBER = "3";
+const char* REVISION_NUMBER = "4";
 const char* TLINE = "\nTyping line >> ";
 
 void line( const char* c ) {
@@ -99,21 +99,40 @@ int main() {
 	//TODO :: Create vector of word using "temp" string
 	vector<string> i;
 	string word = "";
-	string tempw = "";
+	short amalgam = 0;
 
 	for (int j = 0; j < temp.length(); j++) {
 	
+		//TODO :: Support phrase
+		if (int(temp[j]) == 59) {
+
+			amalgam++;
+			continue;
+
+		}
+
 		if (int(temp[j]) != 32) {
 		
-			tempw = temp[j];
-			word += tempw;
+			word += temp[j];
 		
 		}else {
 		
-			i.push_back(word);
-			word = "";
+			if (amalgam == 0) {
+
+				i.push_back(word);
+				word = "";
+
+			}else {
+
+				amalgam--;
+				word += temp[j];
+				continue;
+			
+			}
 
 		}
+
+		if (j == temp.length() - 1) i.push_back(word);
 
 	}
 	if (i.size() != 0) {
@@ -173,7 +192,7 @@ int main() {
 	short wcounter = 0;
 
 	for (int i = 0; i < 2; i++) {
-		while (wcounter != w) { tw += tablearr[i]; wcounter++; }
+		while (wcounter != (w/2)) { tw += tablearr[i]; wcounter++; }
 		tw += "|\n"; wcounter = 0;
 	}
 
