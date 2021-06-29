@@ -4,13 +4,16 @@
 #include <cstdlib>
 #include <ctime>
 #include <vector>
+#include <algorithm>
+#include <cctype>
 #include <direct.h>
 #include <windows.h>
+#include <typeinfo>
 
 using namespace std;
 
 const char* VERSION_NAME = "DEVELOPMENT VERSION 2";
-const char* REVISION_NUMBER = "4";
+const char* REVISION_NUMBER = "5";
 const char* TLINE = "\nTyping line >> ";
 
 void line( const char* c ) {
@@ -33,23 +36,50 @@ void printTitle() {
 
 }
 
-bool menu() {
+int menu() {
 
-	bool inp = 0;
-	cout << "Select the menu (type proper number)\n0 : MAKE PAPER\n1 : HOW TO USE\n" << TLINE << flush;
+	string inp = "0";
+	vector<int> result = {0, 1};
+	cout << "<SELECT THE MENU - entering proper number>\n0 : MAKE PAPER\n1 : HOW TO USE\n" << TLINE << flush;
 	cin >> inp;
-	if (inp > 1) {
+
+	//inp isn't numerous or our of range
+	while (true) {
+
+		short ascii = (int)inp[0];
+
+		if( inp.length() > 1 ){
+
+			cout << "ONE LETTER MUST BE ENTERED IN HERE\n" << TLINE << flush;
+			inp = "";
+			cin >> inp;
+
+		}else if (!((ascii > 47) and (ascii < 58))) {
 		
-		cout << "PLEASE TYPE THE PROPER NUMBER\n" << TLINE << flush;
-		cin >> inp;
+			cout << "NUMBER MUST BE ENTERED IN HERE\n" << TLINE << flush;
+			inp = "";
+			cin >> inp;
+
+		}else if ( result.size() < (ascii-47) ) {
+
+			cout << "PLEASE ENTER THE PROPER NUMBER\n" << TLINE << flush;
+			inp = "";
+			cin >> inp;
+		
+		}else {
+
+			break;
+
+		}
+		
 	
 	}
 
-	return inp;
+	return int(((int)inp[0] - 48));
 
 }
 
-void menuTask(bool inp) {
+void menuTask(int inp) {
 
 	while (inp != 0){
 

@@ -40,6 +40,8 @@ Random word selector for does who memorizing "english" word
  >>								Example of word list.txt : **alphabet alpha bet ;kiwi juice ;;space ship cat ;;;random word selector twelfth** -> 6 words.  
  >>									you can just easily add semicolon how space occupy in words. TODO : make GUI.  
  >>										and also, i fixed some minor bug.
+ >>  
+ >> **Thirteenth commit** - Hotfix of Twelfth commit. fixed issue : In select menu, when entering not numeral, it print infinite "type line".
 
 ## Special Thanks
  > Ranol☆P`21
