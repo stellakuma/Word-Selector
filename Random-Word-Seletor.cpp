@@ -12,8 +12,8 @@
 
 using namespace std;
 
-const char* VERSION_NAME = "DEVELOPMENT VERSION 2";
-const char* REVISION_NUMBER = "5";
+const char* VERSION_NAME = "FIRST RELEASE";
+const char* REVISION_NUMBER = 0;
 const char* TLINE = "\nTyping line >> ";
 
 void line( const char* c ) {
@@ -31,7 +31,9 @@ void line( const char* c ) {
 void printTitle() {
 
 	line("=");
-	cout << "RANDOM WORD SELECTOR - " << VERSION_NAME << " REVISION " << REVISION_NUMBER << "\n";
+	cout << "RANDOM WORD SELECTOR - " << VERSION_NAME;
+	if (REVISION_NUMBER != 0)  cout << " REVISION " << REVISION_NUMBER;
+	cout << "\n";
 	line("=");
 
 }
@@ -129,17 +131,21 @@ int main() {
 	//TODO :: Create vector of word using "temp" string
 	vector<string> i;
 	string word = "";
+
+	//phrase blank counter
 	short amalgam = 0;
 
 	for (int j = 0; j < temp.length(); j++) {
 	
-		//TODO :: Support phrase
+
+		//Phrase support part
 		if (int(temp[j]) == 59) {
 
 			amalgam++;
 			continue;
 
 		}
+
 
 		if (int(temp[j]) != 32) {
 		
@@ -222,7 +228,7 @@ int main() {
 	short wcounter = 0;
 
 	for (int i = 0; i < 2; i++) {
-		while (wcounter != (w/2)) { tw += tablearr[i]; wcounter++; }
+		while (wcounter != (w)) { tw += tablearr[i]; wcounter++; }
 		tw += "|\n"; wcounter = 0;
 	}
 
